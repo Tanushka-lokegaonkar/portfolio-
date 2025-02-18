@@ -478,6 +478,53 @@ span{
     color: var(--bg-color);
 }
 
+.achivement{
+    background: var(--second-bg-color);
+}
+.achivement-box{
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.wrapper2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+.achivement-item{
+    min-height: 500px;
+    max-width: 450px;
+    background-color: var(--second-bg-color);
+    border: 3px solid rgba(238, 238, 238, 0.2);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 30px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    color: white;
+    transition: 0.4s ease-in-out;
+}
+.achivement-item:hover{
+    border: 3px solid var(--main-color);
+    transform: translateY(-10px)scale(1.03);
+    box-shadow: 0 0 50px var(--main-color);
+}
+.achivement-item h2{
+    font-size: 2.8rem;
+}
+.achivement-item p{
+    font-size: 1.3rem;
+}
+
 .contact{
     background-color: var(--bg-color);
 }
