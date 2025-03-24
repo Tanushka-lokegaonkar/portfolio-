@@ -112,26 +112,55 @@
     </section>
 
     <section class="project" id="project">
-        <div class="project-box">
+        <!-- <div class="project-box"> -->
             <h2 class="heading">Project</h2>
-            <div class="wrapper">
-                <div class="project-item">
-                    <img src="1.png" alt="">
-                    <h2>Fighter Plane</h2>
-                    <p>During my first semester, I studied Python and began exploring its capabilities. While learning, I came across the Pygame library, which introduced me to game development. Using Pygame, I created my first small game, where a sequence of images is played to create a motion effect. I implemented features such as collision detection between a fighter plane and enemies, bullet shooting mechanics, a lives countdown, and more. Integrating these elements together was challenging but greatly enhanced my problem-solving skills.
-                    </p>
-                    <a href="https://game3-coral.vercel.app/" class="btn2">Play</a>
+            <div class="banner">
+                <div class="slider" style="--quantity: 4">
+                    <div class="item" style="--position: 1">
+                        <div class="project-item">
+                            <img src="1.png" alt="">
+                            <h2>Fighter Plane</h2>
+                            <p>During my first semester, I studied Python and began exploring its capabilities. While learning, I came across the Pygame library, which introduced me to game development. Using Pygame, I created my first small game, where a sequence of images is played to create a motion effect. I implemented features such as collision detection between a fighter plane and enemies, bullet shooting mechanics, a lives countdown, and more. Integrating these elements together was challenging but greatly enhanced my problem-solving skills.
+                            </p>
+                            <a href="https://game3-coral.vercel.app/" class="btn2">Play</a>
+                        </div>
+                    </div>
+        
+                    <div class="item" style="--position: 2">
+                        <div class="project-item">
+                            <img src="1.png" alt="">
+                            <h2>Fighter Plane</h2>
+                            <p>During my first semester, I studied Python and began exploring its capabilities. While learning, I came across the Pygame library, which introduced me to game development. Using Pygame, I created my first small game, where a sequence of images is played to create a motion effect. I implemented features such as collision detection between a fighter plane and enemies, bullet shooting mechanics, a lives countdown, and more. Integrating these elements together was challenging but greatly enhanced my problem-solving skills.
+                            </p>
+                            <a href="https://game3-coral.vercel.app/" class="btn2">Play</a>
+                        </div>
+                    </div>
+        
+                    <div class="item" style="--position: 3">
+                        <div class="project-item">
+                            <img src="1.png" alt="">
+                            <h2>Fighter Plane</h2>
+                            <p>During my first semester, I studied Python and began exploring its capabilities. While learning, I came across the Pygame library, which introduced me to game development. Using Pygame, I created my first small game, where a sequence of images is played to create a motion effect. I implemented features such as collision detection between a fighter plane and enemies, bullet shooting mechanics, a lives countdown, and more. Integrating these elements together was challenging but greatly enhanced my problem-solving skills.
+                            </p>
+                            <a href="https://game3-coral.vercel.app/" class="btn2">Play</a>
+                        </div>
+                    </div>
+        
+                    <div class="item" style="--position: 4">
+                        <div class="project-item">
+                            <img src="1.png" alt="">
+                            <h2>Fighter Plane</h2>
+                            <p>During my first semester, I studied Python and began exploring its capabilities. While learning, I came across the Pygame library, which introduced me to game development. Using Pygame, I created my first small game, where a sequence of images is played to create a motion effect. I implemented features such as collision detection between a fighter plane and enemies, bullet shooting mechanics, a lives countdown, and more. Integrating these elements together was challenging but greatly enhanced my problem-solving skills.
+                            </p>
+                            <a href="https://game3-coral.vercel.app/" class="btn2">Play</a>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="project-item">
-                    <img src="2.jpg" alt="">
-                    <h2>Personalized Healthcare website</h2>
-                    <p>Collaborated with a team to develop a personalized healthcare platform that securely manages patient medical records. The website features appointment booking, video consultations, and a secure data storage system using MongoDB, ensuring seamless patient-doctor interactions. Designed an intuitive UI/UX to enhance user experience and improve accessibility. Successfully built and presented the project within tight hackathon deadlines, showcasing innovation, teamwork, and problem-solving skills.
-                    </p>
-                    <a href="https://github.com/samriddhitiwary/Hackbattle" class="btn2">Github link</a>
+                <div class="content">
+                    <div class="model"></div>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </section>
 
     <section class="achivement" id="achivement">
@@ -152,8 +181,8 @@
                 </div>
 
                 <div class="achivement-item">
-                    <h2>Best Innovative Design - HackWars (VIT Hackathon)</h2>
-                    <p>Collaborated with a team to develop an innovative solution that won the Best Innovative Design Award at HackWars, a prestigious hackathon hosted by VIT. Designed and built a working prototype, pitched the idea to investors and judges, and successfully navigated multiple competition rounds. Gained hands-on experience in problem-solving, rapid prototyping, and effective presentation under tight deadlines.
+                    <h2>Best Innovative Design</h2>
+                    <p>I teamed up with others to create a solution that won the Best Innovative Design Award at HackWars, a hackathon at VIT. We built a working prototype and presented our idea to judges and investors. This experience helped me develop skills in problem-solving, rapid prototyping, and effective presentations.
                     </p>
                 </div>
 
@@ -202,6 +231,37 @@
         
     </footer>
 
-    <script src="script.js"></script>
+    <script  src="script.js">
+            const slider = document.querySelector('.banner .slider');
+            let isDragging = false;
+            let startX, rotationY = 0;
+            let currentAngle = 0;
+    
+            // Stop auto-rotation by removing the animation loop
+    
+            // Stop animation on mouse down & enable manual rotation
+            slider.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                slider.classList.add('paused');
+            });
+    
+            // Move rotation based on cursor drag
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+    
+                let deltaX = e.clientX - startX;
+                currentAngle += deltaX * 0.3; // Adjust sensitivity
+                slider.style.transform = `perspective(1000px) rotateX(5deg) rotateY(${currentAngle}deg)`;
+    
+                startX = e.clientX;
+            });
+    
+            // Resume animation on mouse up
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                slider.classList.remove('paused');
+            });
+    </script>
 </body>
 </html>
