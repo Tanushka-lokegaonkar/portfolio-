@@ -231,37 +231,6 @@
         
     </footer>
 
-    <script  src="script.js">
-            const slider = document.querySelector('.banner .slider');
-            let isDragging = false;
-            let startX, rotationY = 0;
-            let currentAngle = 0;
-    
-            // Stop auto-rotation by removing the animation loop
-    
-            // Stop animation on mouse down & enable manual rotation
-            slider.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                startX = e.clientX;
-                slider.classList.add('paused');
-            });
-    
-            // Move rotation based on cursor drag
-            document.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-    
-                let deltaX = e.clientX - startX;
-                currentAngle += deltaX * 0.3; // Adjust sensitivity
-                slider.style.transform = `perspective(1000px) rotateX(5deg) rotateY(${currentAngle}deg)`;
-    
-                startX = e.clientX;
-            });
-    
-            // Resume animation on mouse up
-            document.addEventListener('mouseup', () => {
-                isDragging = false;
-                slider.classList.remove('paused');
-            });
-    </script>
+    <script  src="script.js"></script>
 </body>
 </html>

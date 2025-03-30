@@ -440,8 +440,9 @@ span{
     transition: transform 0.2s ease-out;
     z-index: 2;
 }
-.banner .slider.paused {
-    animation: none; /* Stop rotation */
+.slider.paused {
+    /* animation: none; Stop rotation */
+    animation-play-state: paused;
 }
 @keyframes autoRun{
     from{
@@ -774,5 +775,17 @@ span{
     }
     .skills-container{
         grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Tablets */
+    .slider {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile screens */
+    .slider {
+        width: 100vw;
     }
 }
