@@ -499,6 +499,7 @@ span{
 }
 .btn2{
     align-items: center;
+    margin: 10px;
     background-color: var(--bg-color);
     color: var(--main-color);
     border: 2px solid var(--main-color);
@@ -537,6 +538,13 @@ span{
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: top center;
+}
+.project .demo{
+    display: flex;
+    bottom: 5px;     
+    left: 50%;  
+    transform: translateX(5%);
+    justify-content: center;
 }
 
 .achivement{

@@ -6,11 +6,14 @@ let navLinks = document.querySelectorAll('header nav a');
 const slider = document.querySelector('.banner .slider');
 let isDragging = false;
 let startX, currentAngle = 0;
+let clickThreshold = 5; 
+let moved = false;
 
 const startDrag = (e) => {
     isDragging = true;
+    moved = false;
     startX = e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
-    slider.classList.add('paused'); 
+    slider.classList.add('paused');
     slider.style.animation = 'none';
 };
 
@@ -19,16 +22,25 @@ const onDrag = (e) => {
 
     let clientX = e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
     let deltaX = clientX - startX;
+
+    if (Math.abs(deltaX) > clickThreshold) {
+        moved = true;
+    }
+
     currentAngle += deltaX * 0.3;
     slider.style.transform = `perspective(1000px) rotateX(5deg) rotateY(${currentAngle}deg)`;
 
     startX = clientX;
 };
 
-const stopDrag = () => {
+const stopDrag = (e) => {
     isDragging = false;
-    slider.classList.remove('paused'); 
+    slider.classList.remove('paused');
     slider.style.animation = '';
+
+    if (moved) {
+        e.preventDefault();
+    }
 };
 
 // Mouse events
@@ -40,6 +52,7 @@ document.addEventListener('mouseup', stopDrag);
 slider.addEventListener('touchstart', startDrag);
 document.addEventListener('touchmove', onDrag);
 document.addEventListener('touchend', stopDrag);
+
 
 window.onscroll = () => {
     sections.forEach(sec => {
@@ -61,7 +74,6 @@ window.onscroll = () => {
     });
 };
 
-// Check if menuIcon exists before adding event listener
 if (menuIcon) {
     menuIcon.onclick = () => {
         menuIcon.classList.toggle('bx-x');
